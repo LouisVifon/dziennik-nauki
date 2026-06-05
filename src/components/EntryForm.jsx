@@ -29,8 +29,8 @@ function EntryForm({ onAdd }) {
     return (
         <div className="flex flex-col gap-4">
             <h2 className="text-sm text-gray-400">Nowy wpis</h2>
-            <input className="bg-gray-800 border border-gray-700 text-gray-100 placeholder-gray-500 rounded-lg px-3 py-2 w-full" type="text" placeholder="Temat" value={topic} onChange={e => setTopic(e.target.value)} />
-            <select className="bg-gray-800 border border-gray-700 text-gray-100 rounded-lg px-3 py-2 w-full" value={category} onChange={e => setCategory(e.target.value)}>
+            <input className="input-field" type="text" placeholder="Temat" value={topic} onChange={e => setTopic(e.target.value)} />
+            <select className="input-field" value={category} onChange={e => setCategory(e.target.value)}>
                 <option value="react">React</option>
                 <option value="javascript">JavaScript</option>
                 <option value="css">CSS</option>
@@ -38,7 +38,7 @@ function EntryForm({ onAdd }) {
                 <option value="git">Git</option>
                 <option value="other">Inne</option>
             </select>
-            <textarea className="bg-gray-800 border border-gray-700 text-gray-100 placeholder-gray-500 rounded-lg px-3 py-2 w-full resize-none h-24" placeholder="Notatki" value={notes} onChange={e => setNotes(e.target.value)}/>
+            <textarea className="input-field resize-none h-24" placeholder="Notatki" value={notes} onChange={e => setNotes(e.target.value)}/>
             {error && <p className="text-sm text-red-400">{error}</p>}
             <button className="bg-blue-600 text-white rounded-lg px-4 py-2 hover:bg-blue-500 disabled:bg-blue-900 disabled:text-gray-400 disabled:cursor-not-allowed" onClick={handleClick} disabled={topic.trim() === ""}>Dodaj</button>
         </div>
