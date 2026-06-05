@@ -4,7 +4,13 @@ function EntryForm({ onAdd }) {
     const [topic, setTopic] = useState("")
     const [category, setCategory] = useState("react")
     const [notes, setNotes] = useState("")
+    const [error, setError] = useState("")
     function handleClick() {
+        if (topic.trim() === "") {
+            setError("Temat jest wymagany.")
+            return
+        }
+
         const newEntry = {
             id: Date.now(),
             date: new Date().toLocaleDateString("pl-PL"),
@@ -17,6 +23,7 @@ function EntryForm({ onAdd }) {
         setTopic("")
         setCategory("react")
         setNotes("")
+        setError("")
     }
 
     return (
@@ -32,7 +39,8 @@ function EntryForm({ onAdd }) {
                 <option value="other">Inne</option>
             </select>
             <textarea className="border border-gray-200 rounded-lg px-3 py-2 w-full resize-none h-24" placeholder="Notatki" value={notes} onChange={e => setNotes(e.target.value)}/>
-            <button className="bg-blue-500 text-white rounded-lg px-4 py-2" onClick={handleClick}>Dodaj</button>
+            {error && <p className="text-sm text-red-500">{error}</p>}
+            <button className="bg-blue-500 text-white rounded-lg px-4 py-2 disabled:bg-blue-300 disabled:cursor-not-allowed" onClick={handleClick} disabled={topic.trim() === ""}>Dodaj</button>
         </div>
     )
 }
