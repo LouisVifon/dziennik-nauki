@@ -1,9 +1,13 @@
 @import "tailwindcss";
 
 body {
-  @apply bg-gray-900;
+  @apply bg-gray-900 text-gray-100 antialiased;
+}
+
+.card {
+  @apply bg-gray-800 border border-gray-700 rounded-xl;
 }
 
 .input-field {
-  @apply bg-gray-800 border border-gray-700 text-gray-100 placeholder-gray-400 rounded-lg px-3 py-2 w-full focus:border-blue-500 focus:ring-1 focus:ring-blue-500 outline-none;
+  @apply bg-gray-800 border border-gray-700 text-gray-100 placeholder-gray-400 rounded-lg px-3 py-2 w-full transition-colors focus:border-blue-500 focus:ring-1 focus:ring-blue-500 outline-none;
 }
