@@ -1,9 +1,9 @@
-import { useState } from "react"
+import useLocalStorage from "./hooks/useLocalStorage"
 import EntryForm from "./components/EntryForm"
 import EntryList from "./components/EntryList"
 
 function App() {
-  const [entries, setEntries] = useState([])
+  const [entries, setEntries] = useLocalStorage("dziennik-entries", [])
   function handleAddEntry(entry) {
     setEntries(value => [...value, entry])
   }
