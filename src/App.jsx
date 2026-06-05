@@ -12,8 +12,8 @@ function App() {
   }
 
   return (
-    <div>
-      <h1>Dziennik nauki</h1>
+    <div className="max-w-xl mx-auto px-4 py-8">
+      <h1 className="text-2xl font-medium text-gray-900 mb-6">Dziennik nauki</h1>
       <EntryForm onAdd={handleAddEntry} />
       <EntryList entries={entries} onDelete={handleDeleteEntry}/>
     </div>
